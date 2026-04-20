@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文件托管站 - 首页</title>
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root { --primary: #007bff; --bg: #f8f9fa; --border: #dee2e6; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); padding: 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 30px; }
+    header { margin-bottom: 20px; }
+    h1 { font-size: 1.5rem; color: #222; margin-bottom: 10px; }
+    .breadcrumb { color: #666; font-size: 14px; }
+    .breadcrumb a { color: var(--primary); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .item-list { list-style: none; }
+    .item { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; border-bottom: 1px solid var(--border); }
+    .item:hover { background: #f8f9fa; }
+    .item:last-child { border-bottom: none; }
+    .item-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .item-icon { font-size: 18px; }
+    .item-name { color: var(--primary); text-decoration: none; font-weight: 500; word-break: break-all; }
+    .item-name:hover { text-decoration: underline; }
+    .item-meta { font-size: 13px; color: #666; text-align: right; white-space: nowrap; margin-left: 10px; }
+    .back-link { display: inline-block; margin-bottom: 15px; color: var(--primary); text-decoration: none; }
+    .empty { text-align: center; padding: 40px; color: #999; }
+    footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); color: #888; font-size: 14px; }
+    @media (max-width: 600px) { .item { flex-direction: column; align-items: flex-start; gap: 8px; } .item-meta { text-align: left; margin-left: 32px; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📁 文件托管站</h1>
+      <div class="breadcrumb">🏠 首页</div>
+    </header>
+    
+    
+    
+    <ul class="item-list">
+      
+      
+      
+        <li class="item">
+          <div class="item-left">
+            <span class="item-icon">📄</span>
+            <a href="/files/test.txt" class="item-name" download>test.txt</a>
+          </div>
+          <div class="item-meta">0 B · 4/19/2026</div>
+        </li>
+      
+    </ul>
+    
+    
+    
+    <footer>
+      静态文件托管 · 共 1 个文件
+    </footer>
+  </div>
+  
+  <script>
+    function formatSize(b) {
+      if (!b || b === 0) return '0 B';
+      const k = 1024, s = ['B', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(b) / Math.log(k));
+      return (b / Math.pow(k, i)).toFixed(1) + ' ' + s[i];
+    }
+    function getFileIcon(name) {
+      if (name.endsWith('.pdf')) return '📕';
+      if (name.endsWith('.zip') || name.endsWith('.rar')) return '🗜️';
+      if (name.endsWith('.mp4')) return '🎬';
+      if (name.endsWith('.mp3')) return '🎵';
+      if (name.endsWith('.jpg') || name.endsWith('.jpeg') || name.endsWith('.png') || name.endsWith('.gif')) return '🖼️';
+      if (name.endsWith('.doc') || name.endsWith('.docx')) return '📘';
+      if (name.endsWith('.xls') || name.endsWith('.xlsx')) return '📊';
+      return '📄';
+    }
+  </script>
+</body>
+</html>
