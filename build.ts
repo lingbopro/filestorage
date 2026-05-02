@@ -59,28 +59,8 @@ function generateHTML(
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escapeHtml(`lingbopro's file storage • ${relPath}`)}</title>
-  <link rel="icon" href="/favicon.ico">
-  <style>
-    :root { --primary: #007bff; --secondary: #80aeef; --bg: #f8f9fa; --border: #dee2e6; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); padding: 20px; }
-    .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 30px; }
-    header { margin-bottom: 20px; }
-    h1 { font-size: 1.5rem; color: #222; margin-bottom: 10px; }
-    a, a:hover, a:active { color: var(--secondary); text-decoration: none; cursor: pointer; }
-    a:hover { text-decoration: underline; }
-    .breadcrumb { color: #888; font-size: 14px; }
-    .item-list { list-style: none; }
-    .item { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; border-bottom: 1px solid var(--border); }
-    .item:hover { background: #f8f9fa; }
-    .item-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
-    .item-icon { font-size: 18px; }
-    .item-name { color: var(--primary); font-weight: 500; word-break: break-all; }
-    .item-meta { font-size: 13px; color: #888; text-align: right; white-space: nowrap; margin-left: 10px; }
-    .back-link { display: inline-block; margin-bottom: 15px; color: var(--primary); text-decoration: none; }
-    .empty { text-align: center; padding: 40px; color: #999; }
-    footer { text-align: center; padding-top: 20px; color: #888; font-size: 14px; }
-  </style>
+  <link rel="stylesheet" href="${path.join(baseURL, 'index.css')}">
+  <link rel="icon" href="${path.join(baseURL, 'favicon.ico')}">
 </head>
 <body>
   <div class="container">
