@@ -1,0 +1,12 @@
+https://filestorage.lingbopro.qzz.io/*
+  Access-Control-Allow-Origin: *
+
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://filestorage.lingbopro.qzz.io/*
+  Cache-Control: max-age=7200, must-revalidate
+https://filestorage.lingbopro.qzz.io/_files/*
+  Cache-Control: public, max-age=10800

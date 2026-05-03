@@ -5,24 +5,31 @@
   --bg: #f8f9fa;
   --border: #dee2e6;
 }
+:root {
+  background-image: url('/background.jpg');
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans SC', 'Noto Sans', 'Microsoft YaHei UI', 'Segoe UI', sans-serif;
   padding: 20px;
   overflow: auto;
 }
 :root, body {
-  height: 100vh;
+  height: 100%;
 }
 .container {
   max-width: 900px;
   margin: 0 auto;
-  background: #fff;
+  background: #ffffffcb;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 12px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
   padding: 30px;
