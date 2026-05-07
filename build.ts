@@ -50,7 +50,7 @@ function generateHTML(
   const breadcrumbs = pathList
     .map(
       (value, index) =>
-        `<a href="${encodeUrl(path.join(baseURL, pathList.slice(0, index + 1).join('/')))}">${escapeHtml(index === 0 ? 'lingbopro\'s file storage' : value)}</a>`
+        `<a href="${encodeUrl(path.posix.join(baseURL, pathList.slice(0, index + 1).join('/')))}">${escapeHtml(index === 0 ? 'lingbopro\'s file storage' : value)}</a>`
     )
     .join(' / ');
   const html = `<!DOCTYPE html>
@@ -59,8 +59,8 @@ function generateHTML(
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escapeHtml(`lingbopro's file storage • ${relPath}`)}</title>
-  <link rel="stylesheet" href="${path.join(baseURL, 'index.css')}">
-  <link rel="icon" href="${path.join(baseURL, 'favicon.ico')}">
+  <link rel="stylesheet" href="${path.posix.join(baseURL, 'index.css')}">
+  <link rel="icon" href="${path.posix.join(baseURL, 'favicon.ico')}">
 </head>
 <body>
   <div class="container">
@@ -76,7 +76,7 @@ ${dirs
         <li class="item">
           <div class="item-left">
             <span class="item-icon">📁</span>
-            <a href="${encodeUrl(path.join(baseURL, relPath, d))}/" class="item-name">${escapeHtml(d)}</a>
+            <a href="${encodeUrl(path.posix.join(baseURL, relPath, d))}/" class="item-name">${escapeHtml(d)}</a>
           </div>
         </li>`
   )
@@ -87,11 +87,11 @@ ${files
         <li class="item">
           <div class="item-left">
             <span class="item-icon">📄</span>
-            <a href="/_files${encodeUrl(path.join(baseURL, f.relPath))}" class="item-name">${escapeHtml(f.name)}</a>
+            <a href="/_files${encodeUrl(path.posix.join(baseURL, f.relPath))}" class="item-name">${escapeHtml(f.name)}</a>
           </div>
           <div class="item-meta">
             <span class="item-size">${formatSize(f.stat.size)}</span> |
-            <a class="download-link" href="/_files/${encodeUrl(path.join(baseURL, f.relPath))}" download>下载</a>
+            <a class="download-link" href="/_files/${encodeUrl(path.posix.join(baseURL, f.relPath))}" download>下载</a>
           </div>
         </li>`
   )
@@ -122,11 +122,11 @@ async function processDir(relPath: string) {
     const stat = await fsp.stat(absPath);
     if (stat.isDirectory()) {
       dirs.push(filename);
-      await processDir(path.join(relPath, filename));
+      await processDir(path.posix.join(relPath, filename));
     } else {
       files.push({
         name: filename,
-        relPath: path.join(relPath, filename),
+        relPath: path.posix.join(relPath, filename),
         stat,
       });
     }
